@@ -24,3 +24,11 @@ int main()
     printf("%f \n ", e(4,15));
     return 0;
 }
+
+/* for each term the multiplication in numerator and denominator increases by two
+then, total time = 0 + 2 + 4 + 6 + 8 .....
+                = 2(1 = 2 + 3 + .... )
+                = 2(n(n+1)/2)
+                = n(n + 1)
+            therefore. the time complexity is the order of n^2
+    
