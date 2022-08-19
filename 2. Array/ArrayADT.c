@@ -17,6 +17,23 @@ void Display(struct Array arr)
         printf("%d\n", arr.A[i]);
 }
 
+int Delete(struct Array *arr, int index)
+{
+    int x = 0;
+    int i;
+
+    if(index >=0 && index<arr->length)
+    {   
+        x = arr->A[index];
+        for(i = index; i < arr->length; i++ )
+            arr->A[i] = arr->A[i+1];
+        arr->length--;
+        return x;
+    }
+
+    return 0;
+}
+
 void Append(struct Array *arr, int x)
 {
     if(arr->length < arr->size)
@@ -56,6 +73,7 @@ int main()
     //arr.length = n;
     Append(&arr1,10);
     Insert(&arr1,0,12);
+    Delete(&arr1,0);
     Display(arr1);
 return 0;
 }
