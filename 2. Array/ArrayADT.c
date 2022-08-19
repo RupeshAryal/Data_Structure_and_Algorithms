@@ -74,6 +74,7 @@ int main()
     Append(&arr1,10);
     Insert(&arr1,0,12);
     Delete(&arr1,0);
-    Display(arr1);
+    //Display(arr1);
+   
 return 0;
 }
