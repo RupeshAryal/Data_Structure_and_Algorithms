@@ -304,6 +304,66 @@ void RemoveDuplicate(struct Node *p)
     }
 }
 
+void ReverseUsingArray(struct Node *p)
+{
+    int *A;
+    struct Node *q = p;
+    int i = 0;
+    A = (int *)malloc(sizeof(int) * count(p));
+
+     while(q!= NULL)
+     {
+        A[i] = q->data;
+         q = q->next;
+         i++;
+     }
+
+     q = p;
+     i--;
+     while(q!= NULL)
+     {
+        q -> data = A[i];
+        q = q->next;
+        i--;
+     }
+}
+
+void ReverseUsingPointers(struct Node *p)
+{
+    struct  Node *q=NULL, *r = NULL;
+
+    while(p!=NULL)
+    {
+        r = q;
+        q = p;
+        p = p->next;
+        q -> next = r;
+    }
+    first =q;
+}
+
+void ReverseRecursive(struct Node *q, struct Node *p)
+{
+    if(p)
+    {
+        ReverseRecursive(p, p->next);
+        p->next = q;
+    }
+    else
+        first = q;
+}
+
+void Concatenation(struct Node *p, struct Node *q)
+{
+    while(p!=NULL)
+    {
+        p = p->next;
+    }
+
+    p -> next = q;
+    q = NULL;
+}
+
 
 int main()
 {
@@ -315,7 +375,7 @@ int main()
   //  int xx = min(first);
   //  int yy = RecursiveSum(first);
 
-  RemoveDuplicate(first);
+ReverseRecursive(NULL,first);
 
   Display(first);
   printf("\n");
