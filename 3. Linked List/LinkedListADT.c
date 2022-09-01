@@ -6,17 +6,17 @@ struct Node
 {
     int data;
     struct Node *next;
-}*first=NULL;
+}*first=NULL, *second = NULL, *third = NULL;
 
 
-void create(int A[], int n)
+void create(int A[], int n, struct Node* &node_names)
 {
     int i;
     struct Node *t, *last;
-    first = (struct Node *)malloc(sizeof(struct Node));
-    first->data=A[0];
-    first-> next = NULL;
-    last = first;
+    node_names = (struct Node *)malloc(sizeof(struct Node));
+    node_names->data=A[0];
+    node_names-> next = NULL;
+    last = node_names;
 
     for(i = 1;i<n;i++)
     {
@@ -126,6 +126,7 @@ int RecursiveMin(struct Node *p)
 
 void Display(struct Node *p)
 {
+
     while(p != NULL)
     {
         printf("%d ", p->data);
@@ -268,8 +269,8 @@ int Delete(struct Node *p, int index)
         q->next = p->next;
         x = p->data;
         free(p);
-        return x;
     }
+return x;
 }
 
 int IsSorted(struct Node *p)
@@ -355,7 +356,8 @@ void ReverseRecursive(struct Node *q, struct Node *p)
 
 void Concatenation(struct Node *p, struct Node *q)
 {
-    while(p!=NULL)
+    third = p;
+    while(p->next!=NULL)
     {
         p = p->next;
     }
@@ -364,20 +366,77 @@ void Concatenation(struct Node *p, struct Node *q)
     q = NULL;
 }
 
+void Merge(struct Node *p, struct Node *q)
+{
+    struct Node *last;
+    if(p->data < q->data)
+    {
+        third = last = p;
+        p = p->next;
+        third->next = NULL;
+    }
+    else
+     {
+        third = last = q;
+        q = q->next;
+        third->next = NULL;
+     } 
+    while( p && q)
+    {
+        if(p->data < q->data)
+        {
+            last -> next = p;
+            last = p;
+            p = p->next;
+            last -> next = NULL;
+        }
+        else
+        {
+            last -> next = q;
+            last = q;
+            q = q->next;
+            last -> next = NULL;
+        }
+    }
+    if(p) last -> next = p;
+    if(q) last -> next = q;
+}
+
+int isloop(struct Node *f)
+{
+    struct Node *p, *q;
+    p = q = f;
+
+    do
+    {
+        p = p->next;
+        q = q->next;
+        q = q?q->next:q;
+    }while(p && q && p!=q);
+
+    if(p = q)
+        return 1;
+    else
+        return 0;
+
+
+}
+
 
 int main()
 {
-    struct Node *temp;
-    int A[] = {3,4,4,4,6,6,7,8,9};
-    create(A,9);
-  //  int x = count(first);
-  //  int y = RecursiveCount(first);
-  //  int xx = min(first);
-  //  int yy = RecursiveSum(first);
+    int A[] = {1,3,5,7,9};
+    int B[] = {2,4,6,8,10};
 
-ReverseRecursive(NULL,first);
+    create(A, 5, first);
+    struct Node *t1, *t2;
 
-  Display(first);
-  printf("\n");
+    //t1 = first->next->next;
+    //t2 = first->next->next->next->next;
+    //t2->next = t1;
+
+    printf("%d \n", isloop(first));
+    
+
   return 0;
 }
