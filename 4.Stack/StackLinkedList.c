@@ -52,16 +52,11 @@ void Display()
 }
 
 
+
+
 int main()
 {
-    Push(19);
-    Push(11);
-    Push(12);
-    Push(13);
-    pop();
-    pop();
-
-
-    Display();
+    char *exp = "((a+b))";
+    printf("%d ",isMatching(&exp));
     return 0;
 }
