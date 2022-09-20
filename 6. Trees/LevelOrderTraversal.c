@@ -70,9 +70,35 @@ void LevelOrderTraversal(struct Node *p)
     }
 }
 
+
+void count(struct Node *root)
+{
+    if(root)
+        return count(root -> LeftChild) + count(root->RightChild) + 1//this will recursively go to left child and at the end when both left and right child are 
+    return 0;                                                       //null this they will return 0 + 0 + 1. i.e count the node
+}
+
+void height(struct Node *root)
+{
+    int x = 0, y= 0;
+    if (root == NULL)
+    {
+        return 0;
+    }
+    x = height(root->LeftChild); //go to left child recursively until you encounter NULL
+    y = height(root->RightChild);//then go to right child recursively until you reach NULL
+
+    if (x > y)
+        return x + 1;
+    else
+        return y + 1;
+}
+
+
 int main()
 {
     create();
-    LevelOrderTraversal(root);
+    printf("%d", count(root));
+    printf("%d", height(root));
     return 0;
 }
