@@ -86,6 +86,25 @@ struct Node *Search (int key)
     }
     return t;
 }
+
+struct Node *RecursiveInsert(struct Node *p, int value)
+{
+    struct Node *t = NULL;
+
+    if (p==NULL)
+    {
+        t = (struct Node *)malloc(sizeof(struct Node))
+        t->data = value;
+        t->LeftChild = t->RightChild = NULL;
+        return t;
+    }
+    if (value < p->data)
+        p->LeftChild = RecursiveInsert(p->LeftChild, value);
+    else if(value > p->data)
+        p->RightChild = RecursiveInsert(p->RightChild, value);
+
+     return p;   
+}
    
 int main()
 {
