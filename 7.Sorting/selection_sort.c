@@ -11,7 +11,7 @@ void swap(int *x, int *y)
 void selection_sort(int A[], int n)
 {
     int i, j, k;
-    for(i = 0; i<n; i++)
+    for(i = 0; i<n-1; i++)
     {
         j = i;
         k = i;
