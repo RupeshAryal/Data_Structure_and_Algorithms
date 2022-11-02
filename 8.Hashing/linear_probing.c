@@ -73,3 +73,10 @@ int main()
 
     return 0;
 }
+
+//advantage of linear probing
+//---no extra space needed
+
+//disadvantages of linear probing
+//---forms a primary cluster
+//---deletion is difficult and may need rehasing
