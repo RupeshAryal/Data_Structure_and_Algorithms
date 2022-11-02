@@ -15,7 +15,7 @@ void create(int A[], int n, struct Node* &node_names)
     struct Node *t, *last;
     node_names = (struct Node *)malloc(sizeof(struct Node));
     node_names->data=A[0];
-    node_names->mer next = NULL;
+    node_names->next = NULL;
     last = node_names;
 
     for(i = 1;i<n;i++)
