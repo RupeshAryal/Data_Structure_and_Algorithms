@@ -21,7 +21,7 @@ def partition(unsorted_list, low, high):
 def quicksort(unsorted_list, low, high):
     if(low <  high):
        j = partition(unsorted_list, low, high)
-       quicksort(unsorted_list, low, j)
+       quicksort(unsorted_list, low, j-1)
        quicksort(unsorted_list, j + 1, high)
     
     
