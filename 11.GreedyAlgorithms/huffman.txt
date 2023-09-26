@@ -1,0 +1,11 @@
+Huffman coding is used to compress text file without losing any data
+character are transmitted in a text file in ascii code format which is of 8 bit fixed length,
+it isn't efficent way of storing text as some letters (eg: e, t) occur more frequently than others,
+if we are able to use variable size bit length than text files can be stored in a disk occupying minimal space.
+However, the problem with variable size bit length is computers generally do not have a way of delimetering bit string,
+For example, if we use 001 to denote 'e', 0 to denote a whitespace, and 1 to interpret letter 'a' and given a bit string
+001001 computers cannot differentiate if its 'ee' or e followed by two space and a ('e  a') or if it's ('  ae')
+
+Huffman coding is a compression technique which counts the frequency of the characters that appears in the text file,
+it then sorts the character based on the frequency, removes the two minimum elements and then store them in a tree with their sum as
+the root. 
